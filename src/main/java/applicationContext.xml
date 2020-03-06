@@ -7,17 +7,23 @@
     http://www.springframework.org/schema/context 
     http://www.springframework.org/schema/context/spring-context.xsd">
 
+	<context:property-placeholder
+		location="classpath:application.properties" />
+		
 	<bean id="cricket" class="com.fita.SpringDemoOne.Cricket">
 		<constructor-arg ref="genericFirstAid" />
+		<constructor-arg value="${team.name.cricket}"
+			type="String"></constructor-arg>
 	</bean>
 
 	<bean id="basketball" class="com.fita.SpringDemoOne.BasketBall">
 		<property name="medicalService" ref="FirstAidForBasketBall" />
+		<property name="teamName" value="${team.name.basketball}" />
 	</bean>
-	
+
 	<bean id="genericFirstAid"
 		class="com.fita.SpringDemoOne.FirstAidMedicalService" />
-		
-	<bean id="FirstAidForBasketBall"		
+
+	<bean id="FirstAidForBasketBall"
 		class="com.fita.SpringDemoOne.FirstAidForBasketBall" />
 </beans> 

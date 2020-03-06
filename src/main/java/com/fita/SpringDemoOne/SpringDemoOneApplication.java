@@ -14,10 +14,15 @@ public class SpringDemoOneApplication {
 		
 		Cricket cricket = context.getBean("cricket", Cricket.class);
 		BasketBall basketBall = context.getBean("basketball", BasketBall.class);
+		
 		System.out.println(cricket.provideInfo());
 		System.out.println(cricket.getFirstAidInfo());
+		System.out.println("Team Name: " + cricket.getTeamName());
+		
 		System.out.println(basketBall.provideInfo());
 		System.out.println(basketBall.getFirstAidInfo());
+		System.out.println("Team Name: " + basketBall.getTeamName());
+		
 		context.close();
 	}
 
